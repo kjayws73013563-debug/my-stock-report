@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼성바이오로직스 주식 보고서 최종본 (나침반 가이드)</title>
+  <style>
+    /* ==========================================================================
+       비주얼 테마: 황혼의 노을과 푸른빛 나침반 (Sunset & Compass Light Theme)
+       - 딥 트와일라잇 나이트 & 노을빛 앰버 골드 & 나침반의 네온 시안 블루
+       - 초보 투자자의 길을 밝혀주는 '나침반(Compass)' 감성 디자인
+       ========================================================================== */
+    :root {
+      /* 황혼의 하늘 & 깊은 밤 */
+      --bg-deep-night: #090e1a;
+      --sunset-orange: #f97316;
+      --sunset-amber: #fbbf24;
+      
+      /* 나침반의 네온 시안 블루 */
+      --compass-cyan: #00f2fe;
+      --compass-blue: #38bdf8;
+      
+      /* 글래스 카드 & 서피스 */
+      --glass-bg: rgba(15, 23, 42, 0.78);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      
+      /* 텍스트 색상 */
+      --text-pure: #ffffff;
+      --text-main: #f1f5f9;
+      --text-sub: #cbd5e1;
+      --text-muted: #94a3b8;
+
+      /* 등락 표시 */
+      --up-color: #fb7185;
+      --down-color: #38bdf8;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-deep-night);
+      background-image: 
+        radial-gradient(circle at 80% 8%, rgba(249, 115, 22, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 20% 40%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(251, 191, 36, 0.08) 0%, transparent 40%),
+        linear-gradient(180deg, #140e26 0%, #121833 25%, #0b1325 65%, #060913 100%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      padding-bottom: 70px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 1. 상단 원칙 알림 배너 */
+    .disclaimer-banner {
+      background: linear-gradient(90deg, rgba(30, 18, 48, 0.95) 0%, rgba(55, 28, 20, 0.95) 50%, rgba(20, 35, 60, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fed7aa;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 18px;
+    }
+
+    /* 2. 유틸리티 액션 바 (인쇄/PDF 저장 및 다운로드 버튼) */
+    .action-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      color: var(--compass-cyan);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-action:hover {
+      background: rgba(0, 242, 254, 0.18);
+      border-color: var(--compass-cyan);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-action-primary {
+      background: rgba(249, 115, 22, 0.2);
+      border-color: rgba(249, 115, 22, 0.5);
+      color: #fed7aa;
+    }
+
+    .btn-action-primary:hover {
+      background: rgba(249, 115, 22, 0.32);
+      border-color: #fb923c;
+      box-shadow: 0 0 14px rgba(249, 115, 22, 0.4);
+    }
+
+    /* 3. 실시간 조회 상태 안내 카드 */
+    .live-status-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-left: 4px solid var(--compass-cyan);
+      border-radius: var(--radius-md);
+      padding: 13px 20px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .live-status-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--compass-cyan);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px var(--compass-cyan);
+      animation: pulse-glow 2.5s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 6px var(--compass-cyan); opacity: 0.8; }
+      50% { box-shadow: 0 0 16px var(--compass-cyan); opacity: 1; }
+    }
+
+    .btn-refresh {
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--compass-cyan);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-refresh:hover {
+      background: rgba(0, 242, 254, 0.24);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+    }
+
+    /* 4. 헤더 카드 */
+    .header-card {
+      background: linear-gradient(135deg, rgba(20, 27, 50, 0.88) 0%, rgba(28, 20, 48, 0.88) 100%);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg);
+      padding: 30px 28px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f97316 0%, #fbbf24 35%, #00f2fe 75%, #38bdf8 100%);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .company-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .badge-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-exchange {
+      background: rgba(249, 115, 22, 0.2);
+      color: #fdba74;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+    }
+
+    .badge-code {
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--compass-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      font-family: ui-monospace, monospace;
+    }
+
+    .badge-currency {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fde047;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+    }
+
+    .company-title {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--text-pure);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .compass-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6));
+    }
+
+    .company-title-en {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .price-overview {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .current-price {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--text-pure);
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .price-change {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .price-up {
+      color: var(--up-color);
+      text-shadow: 0 0 10px rgba(251, 113, 133, 0.4);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-sub);
+      background: rgba(10, 16, 32, 0.6);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .meta-item strong {
+      color: #fed7aa;
+      font-weight: 700;
+    }
+
+    /* 5. 본문 섹션 카드 */
+    .section-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      padding: 26px 28px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      margin-bottom: 24px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .section-card h2 {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-pure);
+      border-left: 4px solid var(--compass-cyan);
+      padding-left: 12px;
+      letter-spacing: -0.01em;
+      text-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+    }
+
+    .section-card p {
+      color: var(--text-sub);
+      margin-bottom: 12px;
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    /* 핵심 요약 카드 */
+    .summary-highlight-box {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(0, 242, 254, 0.08) 100%);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-top: 3px solid #f97316;
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-bottom: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .summary-lead {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
+    }
+
+    .summary-three-sentences {
+      list-style-type: decimal;
+      padding-left: 20px;
+      font-size: 14.5px;
+      color: var(--text-main);
+      line-height: 1.75;
+    }
+
+    .summary-three-sentences li {
+      margin-bottom: 9px;
+    }
+
+    .summary-three-sentences li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 용어 풀이 팁 박스 */
+    .tip-box {
+      background: rgba(0, 242, 254, 0.07);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-left: 4px solid var(--compass-cyan);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.05);
+    }
+
+    .tip-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--compass-cyan);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+    }
+
+    .tip-content {
+      font-size: 13.5px;
+      color: #e0f2fe;
+      line-height: 1.65;
+    }
+
+    /* 정돈된 지표 패널 (Stats Grid) */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin: 18px 0 22px 0;
+    }
+
+    .stat-card {
+      background: rgba(14, 21, 38, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .stat-card:hover {
+      background: rgba(20, 30, 56, 0.85);
+      border-color: rgba(0, 242, 254, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 242, 254, 0.15);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--text-pure);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+    /* 차트 영역 */
+    .chart-container {
+      position: relative;
+      background: rgba(10, 16, 32, 0.8);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-top: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0, 242, 254, 0.03);
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .chart-header h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-pure);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      height: 330px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .chart-tooltip {
+      position: absolute;
+      background: rgba(10, 15, 30, 0.95);
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      pointer-events: none;
+      display: none;
+      z-index: 10;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 12px rgba(0, 242, 254, 0.4);
+      border: 1px solid var(--compass-cyan);
+    }
+
+    /* 테이블 영역 */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      -webkit-overflow-scrolling: touch;
+      background: rgba(10, 16, 30, 0.6);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    th, td {
+      padding: 11px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+    }
+
+    th {
+      background: rgba(18, 26, 48, 0.85);
+      color: #94a3b8;
+      font-weight: 800;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(0, 242, 254, 0.05);
+    }
+
+    /* 뉴스 섹션 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .news-item {
+      background: rgba(14, 21, 38, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: all 0.25s ease;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .news-item:hover {
+      background: rgba(20, 30, 56, 0.8);
+      border-color: rgba(0, 242, 254, 0.35);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .news-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-pure);
+      text-decoration: none;
+      line-height: 1.45;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .news-title:hover {
+      color: var(--compass-cyan);
+      text-decoration: underline;
+    }
+
+    .scope-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .scope-full {
+      background-color: rgba(0, 242, 254, 0.18);
+      color: var(--compass-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.45);
+      box-shadow: 0 0 8px rgba(0, 242, 254, 0.2);
+    }
+
+    .scope-meta {
+      background-color: rgba(251, 191, 36, 0.18);
+      color: #fde047;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+    }
+
+    .news-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .news-meta span strong {
+      color: var(--text-main);
+    }
+
+    .news-summary {
+      font-size: 13.5px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      background: rgba(10, 15, 28, 0.6);
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .news-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--compass-cyan);
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .news-link-btn:hover {
+      color: #38bdf8;
+      text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+    }
+
+    /* 사실 / 해석 / 남은 질문 그리드 */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .analysis-card {
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(13, 19, 36, 0.7);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .analysis-fact {
+      border-top: 3px solid #f97316;
+    }
+
+    .analysis-interpret {
+      border-top: 3px solid var(--compass-cyan);
+      background: rgba(10, 22, 45, 0.7);
+    }
+
+    .analysis-questions {
+      border-top: 3px solid #fbbf24;
+      background: rgba(28, 22, 20, 0.6);
+    }
+
+    .analysis-card h3 {
+      font-size: 15.5px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .analysis-fact h3 { color: #fed7aa; }
+    .analysis-interpret h3 { color: var(--compass-cyan); text-shadow: 0 0 10px rgba(0, 242, 254, 0.3); }
+    .analysis-questions h3 { color: #fde047; }
+
+    .analysis-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-sub);
+    }
+
+    .analysis-list li {
+      margin-bottom: 9px;
+      line-height: 1.6;
+    }
+
+    /* 검증 및 안내 박스 */
+    .verify-box {
+      background: rgba(10, 16, 32, 0.6);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-top: 20px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .verify-box h4 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 8px;
+    }
+
+    /* 푸터 */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 45px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.85;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* ==========================================================================
+       인쇄/PDF 저장 미디어 쿼리 (A4 최적화 및 페이지 넘김 처리)
+       ========================================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 14mm 12mm 14mm 12mm;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #0b1a30 !important;
+        padding-bottom: 0 !important;
+        font-size: 10.5pt;
+      }
+
+      /* 인쇄 시 제외할 UI 컨트롤 */
+      .disclaimer-banner,
+      .action-bar,
+      .btn-refresh,
+      .news-link-btn {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .header-card,
+      .section-card,
+      .summary-highlight-box,
+      .chart-container,
+      .table-responsive,
+      .news-item,
+      .analysis-card,
+      .verify-box,
+      footer {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        color: #0b1a30 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 12px !important;
+        padding: 14px 16px !important;
+      }
+
+      .header-card::before {
+        background: #0b1a30 !important;
+      }
+
+      .current-price, .company-title {
+        color: #0b1a30 !important;
+        text-shadow: none !important;
+      }
+
+      .section-card h2 {
+        color: #0b1a30 !important;
+        text-shadow: none !important;
+        border-left-color: #0284c7 !important;
+      }
+
+      .summary-lead {
+        color: #b45309 !important;
+        text-shadow: none !important;
+      }
+
+      .tip-box {
+        background: #f0f9ff !important;
+        border: 1px solid #bae6fd !important;
+        border-left: 4px solid #0284c7 !important;
+        color: #0369a1 !important;
+      }
+
+      .tip-title {
+        color: #0284c7 !important;
+        text-shadow: none !important;
+      }
+
+      .tip-content {
+        color: #0369a1 !important;
+      }
+
+      .stat-card {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .stat-value {
+        color: #0b1a30 !important;
+      }
+
+      .canvas-wrapper {
+        height: 220px !important;
+      }
+
+      table th {
+        background: #f1f5f9 !important;
+        color: #334155 !important;
+      }
+
+      a {
+        color: #0b1a30 !important;
+        text-decoration: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       모바일(Mobile) 반응형: 좁은 화면(375px~640px)
+       ========================================================================== */
+    @media (max-width: 640px) {
+      .container { padding: 14px 10px; }
+      .header-card { padding: 22px 16px; }
+      .current-price { font-size: 32px; }
+      .company-title { font-size: 23px; }
+      .section-card { padding: 18px 14px; }
+      .canvas-wrapper { height: 260px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .meta-grid { grid-template-columns: 1fr; padding: 12px 14px; }
+      .news-item { padding: 14px 14px; }
+      .action-bar { justify-content: stretch; }
+      .btn-action { flex: 1; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 원칙 알림 배너 -->
+  <aside class="disclaimer-banner" aria-label="보고서 기준 안내">
+    ⚠️ AI 초안 · 저장 자료 기준 · 실시간 시세 아님 · 특정 기사가 가격 변화의 원인이라고 단정하지 마십시오 · 투자 권유 및 수익 보장이 아닙니다.
+  </aside>
+
+  <main class="container">
+
+    <!-- 상단 유틸리티 액션 바 (인쇄/PDF 저장 & HTML 다운로드) -->
+    <div class="action-bar no-print">
+      <a href="./stock-report.html" download="삼성바이오로직스_주식보고서_20261105.html" class="btn-action">
+        <span>💾</span>
+        <span>독립 보고서 HTML 내려받기</span>
+      </a>
+      <button onclick="window.print();" class="btn-action btn-action-primary">
+        <span>🖨️</span>
+        <span>인쇄 / PDF로 저장 (A4 대응)</span>
+      </button>
+    </div>
+
+    <!-- 실시간 조회 상태 안내 카드 (나침반 인디케이터) -->
+    <div class="live-status-card">
+      <div class="live-status-info">
+        <span class="status-dot"></span>
+        <span>
+          <strong>실시간 조회 상태:</strong> 2026-11-05 20:57 기준 한국거래소(KRX) 장마감(CLOSE) 상태이며 최종 체결가는 1,519,000원입니다.
+        </span>
+      </div>
+      <div>
+        <button class="btn-refresh no-print" onclick="location.reload();">
+          <span>🔄</span>
+          <span>저장 데이터 다시 확인</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 헤더 섹션 (나침반 & 황혼 노을 무드) -->
+    <header class="header-card">
+      <div class="header-top">
+        <div class="company-title-wrap">
+          <div class="badge-wrap">
+            <span class="badge badge-exchange">KRX 유가증권시장(KOSPI)</span>
+            <span class="badge badge-code">종목코드 207940</span>
+            <span class="badge badge-currency">통화 KRW (원)</span>
+          </div>
+          <h1 class="company-title">
+            <span class="compass-icon">
+              <!-- 나침반 SVG 아이콘 -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--compass-cyan); width:100%; height:100%;">
+                <circle cx="12" cy="12" r="10" stroke="rgba(0,242,254,0.4)"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="rgba(0,242,254,0.3)" stroke="var(--compass-cyan)"></polygon>
+              </svg>
+            </span>
+            삼성바이오로직스 주식 보고서
+          </h1>
+          <span class="company-title-en">Samsung Biologics Co., Ltd. · 초보 투자자를 위한 나침반 가이드 최종본</span>
+        </div>
+
+        <div class="price-overview">
+          <span class="current-price">1,519,000원</span>
+          <span class="price-change price-up">
+            ▲ 24,000원 (+1.61%)
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>기준일:</strong> 2026년 11월 5일
+        </div>
+        <div class="meta-item">
+          <strong>마지막 거래일:</strong> 2026년 11월 5일
+        </div>
+        <div class="meta-item">
+          <strong>작성 시각:</strong> 2026-11-05 21:22:00 KST
+        </div>
+        <div class="meta-item">
+          <strong>원자료 수집:</strong> 2026-11-05 20:57:30 KST
+        </div>
+        <div class="meta-item">
+          <strong>분석 기간:</strong> 최근 1개월 (2026.10.01 ~ 2026.11.05, 24거래일)
+        </div>
+        <div class="meta-item">
+          <strong>시세 출처:</strong> 한국거래소(KRX) 유가증권시장 공시 및 네이버페이 증권 저장 시세
+        </div>
+        <div class="meta-item">
+          <strong>저장 파일:</strong> <a href="./samsung_biologics_data.json" target="_blank" style="color:var(--compass-cyan); text-decoration: underline; font-weight:700;">samsung_biologics_data.json</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. 핵심 요약 (3문장 정리) -->
+    <section class="section-card">
+      <h2>1. 핵심 요약 (3문장 정리)</h2>
+      <div class="summary-highlight-box">
+        <div class="summary-lead">🧭 주식 입문자를 위한 1분 나침반 요약</div>
+        <ol class="summary-three-sentences">
+          <li><strong>기업과 현재 주가:</strong> 삼성바이오로직스는 세계적인 제약사들의 약을 대신 만들어주는 글로벌 생산 대행(CDMO) 기업으로, 2026년 11월 5일 기준 주가는 1,519,000원(시가총액 70조 3,160억 원)을 기록했습니다.</li>
+          <li><strong>최근 1개월 가격 흐름:</strong> 지난 한 달간 주가는 10월 중순 117.9만 원까지 하락하며 조정을 겪었으나 이후 반등에 성공하여 10월 초 대비 91,000원(+6.37%) 오른 151.9만 원으로 기간을 마쳤습니다.</li>
+          <li><strong>주요 이슈와 점검 과제:</strong> 펩타이드 기업 폴리펩타이드 지분 98% 인수 확정과 4,343억 원 수주가 확인된 반면, 11월 6일 노조의 2차 파업 예고에 따른 공장 가동률 유지 여부가 향후 주시할 확인 사항입니다.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 2. 회사 소개 (초보자 눈높이 설명) -->
+    <section class="section-card">
+      <h2>2. 회사 소개 (초보자 눈높이 설명)</h2>
+      <p>
+        <strong>삼성바이오로직스</strong>는 2011년에 설립되어 인천 송도에 본사를 둔 세계적인 바이오 기업입니다.
+        주식 시장에서는 <strong>한국거래소(KRX) 유가증권시장(KOSPI)</strong>에 2016년 상장되었으며 종목코드는 <strong>207940</strong>입니다.
+      </p>
+
+      <div class="tip-box">
+        <div class="tip-title">💡 처음 만나는 용어 풀이: CDMO(위탁개발·생산)란?</div>
+        <div class="tip-content">
+          <strong>CDMO(Contract Development and Manufacturing Organization)</strong>는 글로벌 제약사들이 연구·개발한 바이오 신약을 거대한 첨단 청정 공장에서 대신 고품질로 대량 생산해주는 '바이오 파운드리(생산 대행)' 사업입니다.<br>
+          마치 반도체 분야에서 전문 제조 공장(파운드리)이 다른 회사들의 설계도를 받아 반도체 칩을 만들어주듯, 삼성바이오로직스는 세계 유수 제약사들의 약을 전문적으로 만들어 공급합니다.
+        </div>
+      </div>
+
+      <p>
+        삼성바이오로직스는 인천 송도 캠퍼스 내 1~4공장을 가동하며 단일 공장 기준 세계 최대 규모의 바이오의약품 생산 능력을 갖추고 있으며, 5공장 증설을 비롯한 제2바이오캠퍼스 확장을 차질 없이 진행하고 있습니다.
+      </p>
+    </section>
+
+    <!-- 3. 가격 흐름 및 핵심 지표 (나침반 지표 패널) -->
+    <section class="section-card">
+      <h2>3. 가격 흐름 및 핵심 지표 (저장 자료 기준)</h2>
+      <p>
+        2026년 11월 5일 저장된 공개 시세 데이터를 바탕으로 추출한 회사의 핵심 가치 지표와 최근 1개월(24거래일)간의 가격 추이입니다.
+      </p>
+
+      <!-- 정돈된 지표 패널 (Stats Grid) -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">시가총액</div>
+          <div class="stat-value" style="color:#fdba74;">70조 3,160억</div>
+          <div class="stat-desc">주식 시장에서 평가하는 회사 전체의 총 가치(몸값)입니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">1개월 기간 변동</div>
+          <div class="stat-value" style="color:var(--up-color);">+91,000원 (+6.37%)</div>
+          <div class="stat-desc">10월 1일 142.8만 원에서 11월 5일 151.9만 원으로 상승했습니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">1개월 가격 범위</div>
+          <div class="stat-value">117.9만 ~ 151.9만</div>
+          <div class="stat-desc">기간 중 최저가(10/14)와 최고가(11/05)의 범위입니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PER (주가수익비율)</div>
+          <div class="stat-value" style="color:var(--compass-cyan);">42.31배</div>
+          <div class="stat-desc">회사가 1년간 번 순이익 대비 주가가 몇 배인지 나타내는 지표입니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PBR (주가순자산비율)</div>
+          <div class="stat-value">8.47배</div>
+          <div class="stat-desc">회사가 가진 순자산 장부가치 대비 주가 배수를 의미합니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">외국인 보유율</div>
+          <div class="stat-value">12.68%</div>
+          <div class="stat-desc">전체 발행 주식 중 외국인 투자자가 보유한 지분 비율입니다.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">52주 최고가</div>
+          <div class="stat-value">1,987,000원</div>
+          <div class="stat-desc">최근 1년 동안 장중 가장 높았던 가격입니다 (수정 1,971,704원).</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">52주 최저가</div>
+          <div class="stat-value">1,143,000원</div>
+          <div class="stat-desc">최근 1년 동안 장중 가장 낮았던 가격입니다 (수정 1,150,000원).</div>
+        </div>
+      </div>
+
+      <!-- 인터랙티브 차트 -->
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>
+            <span style="color:var(--compass-cyan);">✦</span>
+            최근 1개월 종가 추이 차트 (2026.10.01 ~ 2026.11.05)
+          </h3>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background:var(--compass-cyan); box-shadow:0 0 8px var(--compass-cyan);"></span>
+              <span style="color:var(--text-pure);">종가 궤적 (KRW)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:rgba(251, 191, 36, 0.45);"></span>
+              <span>거래량 (주)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="stockChart"></canvas>
+          <div id="chartTooltip" class="chart-tooltip"></div>
+        </div>
+      </div>
+
+      <!-- 일별 시세 상세 테이블 -->
+      <div style="margin-top: 24px;">
+        <h3 style="font-size:15px; font-weight:800; color:var(--text-pure); margin-bottom: 8px;">일별 거래 내역 상세 (저장 자료 기준 24거래일)</h3>
+        <div class="table-responsive">
+          <table aria-label="최근 1개월 삼성바이오로직스 일별 종가 및 거래량">
+            <thead>
+              <tr>
+                <th>거래일</th>
+                <th>종가 (원)</th>
+                <th>전일대비 등락률</th>
+                <th>시가 (원)</th>
+                <th>고가 (원)</th>
+                <th>저가 (원)</th>
+                <th>거래량 (주)</th>
+              </tr>
+            </thead>
+            <tbody id="priceTableBody">
+              <!-- JavaScript로 동적 렌더링 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 관련 뉴스와 확인 근거 (저장 기사 5선) -->
+    <section class="section-card">
+      <h2>4. 관련 뉴스와 확인 근거 (저장 기사 5선)</h2>
+      <p>
+        삼성바이오로직스와 직접 관련된 최신 공개 기사 5건을 선별하여 보관 자료로 등록했습니다.
+        실제 <strong>‘본문 읽음’</strong>을 거친 기사는 읽은 내용 범위 내에서만 정밀 요약하였으며,
+        <strong>‘제목·메타정보만 확인’</strong>된 기사는 본문을 임의로 꾸며내지 않고 공식 공시 메타정보만 투명하게 표시했습니다.
+      </p>
+
+      <div class="tip-box" style="background:rgba(249, 115, 22, 0.08); border-color:rgba(249, 115, 22, 0.35); border-left-color:#f97316; margin: 12px 0 18px 0;">
+        <div class="tip-title" style="color:#fb923c;">⚠️ 인과관계 단정 배제 안내</div>
+        <div class="tip-content" style="color:#fed7aa;">
+          특정 뉴스(수주, M&A, 파업 등)가 당일 주가 상승이나 하락의 직접적 원인이라고 단정할 수 없습니다. 
+          주가는 국내외 증시 흐름, 환율, 금리, 기관/외국인 수급 등 수많은 요인이 함께 작용하므로, 기사는 보도된 객관적 사실을 확인하는 용도로만 참고해야 합니다.
+        </div>
+      </div>
+
+      <div class="news-list">
+
+        <!-- 기사 1 -->
+        <article class="news-item">
+          <div class="news-header">
+            <a href="https://n.news.naver.com/mnews/article/015/0005350853" target="_blank" rel="noopener noreferrer" class="news-title">
+              1. 폴리펩타이드 공개매수…삼성바이오 지분 98% 확보
+            </a>
+            <span class="scope-badge scope-full">본문 읽음</span>
+          </div>
+          <div class="news-meta">
+            <span><strong>매체:</strong> 한국경제</span>
+            <span><strong>보도일시:</strong> 2026-11-05 18:01 KST</span>
+            <span><strong>수집시각:</strong> 2026-11-05 20:56:39 KST</span>
+          </div>
+          <div class="news-summary">
+            <strong>[본문 요약]</strong> 삼성바이오로직스는 글로벌 펩타이드 위탁개발생산(CDMO) 전문 기업 폴리펩타이드그룹(PolyPeptide Group) 인수를 위한 공개매수 결과, 대상 주식의 97.98%(발행주식의 97.66%, 총 3,235만 302주)의 응모 지분을 확보했다고 5일 공식 발표함. 거래 성사를 위한 최소 요건과 잔여 지분에 대한 강제매수 요건을 모두 충족하며 인수 작업이 사실상 마무리 단계에 들어섬.
+          </div>
+          <a href="https://n.news.naver.com/mnews/article/015/0005350853" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 한국경제 기사 원문 확인하기 ↗
+          </a>
+        </article>
+
+        <!-- 기사 2 -->
+        <article class="news-item">
+          <div class="news-header">
+            <a href="https://n.news.naver.com/mnews/article/215/0001271817" target="_blank" rel="noopener noreferrer" class="news-title">
+              2. 론자는 영토 늘리는데…삼성바이오 노조, 또 파업한다
+            </a>
+            <span class="scope-badge scope-full">본문 읽음</span>
+          </div>
+          <div class="news-meta">
+            <span><strong>매체:</strong> 한국경제TV</span>
+            <span><strong>보도일시:</strong> 2026-11-05 17:50 KST</span>
+            <span><strong>수집시각:</strong> 2026-11-05 20:56:50 KST</span>
+          </div>
+          <div class="news-summary">
+            <strong>[본문 요약]</strong> 삼성바이오로직스 노조가 지난 5월 1차 파업에 이어 11월 6일부터 2차 파업에 돌입한다고 예고함. 법원의 쟁의행위금지 가처분 결정으로 핵심 배양·정제 공정 인력의 파업 참여가 제한된 가운데 약 800명(간접 부서 중심)이 참여할 계획임. 글로벌 경쟁사(론자 등)가 해외 설비를 공격적으로 확장하는 국면에서 잠재적인 생산 및 대외 경쟁력 영향에 대한 시장의 우려를 다룸.
+          </div>
+          <a href="https://n.news.naver.com/mnews/article/215/0001271817" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 한국경제TV 기사 원문 확인하기 ↗
+          </a>
+        </article>
+
+        <!-- 기사 3 -->
+        <article class="news-item">
+          <div class="news-header">
+            <a href="https://n.news.naver.com/mnews/article/422/0000922937" target="_blank" rel="noopener noreferrer" class="news-title">
+              3. 삼성바이오 노조, 오는 6일부터 2차 파업 예고…대화 의지는 계속
+            </a>
+            <span class="scope-badge scope-full">본문 읽음</span>
+          </div>
+          <div class="news-meta">
+            <span><strong>매체:</strong> 연합뉴스TV</span>
+            <span><strong>보도일시:</strong> 2026-11-04 21:06 KST</span>
+            <span><strong>수집시각:</strong> 2026-11-05 20:56:58 KST</span>
+          </div>
+          <div class="news-summary">
+            <strong>[본문 요약]</strong> 삼성바이오로직스 상생노동조합은 회사의 교섭 응답 부재에 따라 6일 0시부터 2차 파업에 들어간다고 밝힘. 노조 측은 법원의 가처분 결정을 준수하여 400명 내외 규모로 공정 파업을 순차 진행하겠다고 설명하면서도, 쟁의 기간 중에도 대화와 교섭의 문은 항상 열려 있다는 입장을 강조함.
+          </div>
+          <a href="https://n.news.naver.com/mnews/article/422/0000922937" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 연합뉴스TV 기사 원문 확인하기 ↗
+          </a>
+        </article>
+
+        <!-- 기사 4 -->
+        <article class="news-item">
+          <div class="news-header">
+            <a href="https://n.news.naver.com/mnews/article/020/0003760193" target="_blank" rel="noopener noreferrer" class="news-title">
+              4. 삼성바이오로직스 ESG 평가 세계 4위
+            </a>
+            <span class="scope-badge scope-full">본문 읽음</span>
+          </div>
+          <div class="news-meta">
+            <span><strong>매체:</strong> 동아일보</span>
+            <span><strong>보도일시:</strong> 2026-11-05 04:33 KST</span>
+            <span><strong>수집시각:</strong> 2026-11-05 20:56:59 KST</span>
+          </div>
+          <div class="news-summary">
+            <strong>[본문 요약]</strong> 글로벌 환경·사회·지배구조(ESG) 리스크 평가기관 서스테이널리틱스의 ‘2026 ESG 리스크 평가’에서 전 세계 4위 수준에 해당하는 최상위 등급 ‘극히 미미한 위험(Negligible Risk)’을 획득함. 유해 폐기물 재활용과 사업장 전반의 체계적인 친환경 리스크 관리 노력을 국제적으로 인정받음.
+          </div>
+          <a href="https://n.news.naver.com/mnews/article/020/0003760193" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 동아일보 기사 원문 확인하기 ↗
+          </a>
+        </article>
+
+        <!-- 기사 5 -->
+        <article class="news-item">
+          <div class="news-header">
+            <a href="https://dart.fss.or.kr" target="_blank" rel="noopener noreferrer" class="news-title">
+              5. 삼성바이오로직스, 글로벌 제약사와 4,343억 원(약 3.2억 달러) 규모 위탁생산(CMO) 계약 체결
+            </a>
+            <span class="scope-badge scope-meta">제목·메타정보만 확인</span>
+          </div>
+          <div class="news-meta">
+            <span><strong>매체:</strong> 금융감독원 전자공시(DART) / 코메디닷컴</span>
+            <span><strong>보도일시:</strong> 2026-11-03 14:15 KST</span>
+            <span><strong>수집시각:</strong> 2026-11-05 20:57:30 KST</span>
+          </div>
+          <div class="news-summary" style="background:rgba(28, 22, 20, 0.7); border-color:rgba(251, 191, 36, 0.25);">
+            <strong>[확인 안내]</strong> 본 기사는 전자공시 원문 제목 및 공시 메타정보(계약금액 4,343억 원 / 계약기간 2026.11.02 ~ 2031.12.31 / 고객사 경영상 비밀유지)만을 확인하였습니다. 규칙에 따라 기사 본문을 직접 열람하지 않았으므로 본문을 임의로 요약하지 않습니다.
+          </div>
+          <a href="https://dart.fss.or.kr" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 금융감독원 전자공시시스템(DART) 확인하기 ↗
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 5. 더 확인할 것: 사실 · AI 해석 · 남은 질문 -->
+    <section class="section-card">
+      <h2>5. 더 확인할 것: 사실 · 자료 근거 AI 해석 · 남은 질문</h2>
+      <p>
+        초보 투자자가 건전한 판단을 내리기 위해 가장 중요한 것은 객관적 사실(Fact)과 AI의 분석적 해석(Interpretation), 그리고 스스로 질문해야 할 남은 확인 과제(Questions)를 분리해서 보는 것입니다.
+      </p>
+
+      <div class="analysis-grid">
+        <!-- 팩트 -->
+        <article class="analysis-card analysis-fact">
+          <h3>📌 객관적 사실 (Fact)</h3>
+          <ul class="analysis-list">
+            <li><strong>회사 식별:</strong> 삼성바이오로직스 (KRX 207940), 인천 송도 본점 소재.</li>
+            <li><strong>종가 및 지표:</strong> 2026년 11월 5일 종가 1,519,000원 (+1.61%), 시가총액 70조 3,160억 원, PER 42.31배, PBR 8.47배.</li>
+            <li><strong>수주 및 인수 공시 사실:</strong>
+              <br>• 폴리펩타이드 지분 97.98% 확보로 인수 마무리 단계 접어듦 (<a href="https://n.news.naver.com/mnews/article/015/0005350853" target="_blank" style="color:var(--compass-cyan); font-weight:700;">한국경제 출처</a>)
+              <br>• 11월 3일 4,343억 원 규모 위탁생산 계약 공시 (<a href="https://dart.fss.or.kr" target="_blank" style="color:var(--compass-cyan); font-weight:700;">DART 출처</a>)
+            </li>
+            <li><strong>노사 동향:</strong> 노조 11월 6일 2차 파업 예고 및 법원의 배양·정제 9개 공정 가처분 준수 확인 (<a href="https://n.news.naver.com/mnews/article/422/0000922937" target="_blank" style="color:var(--compass-cyan); font-weight:700;">연합뉴스TV 출처</a>).</li>
+          </ul>
+        </article>
+
+        <!-- 해석 -->
+        <article class="analysis-card analysis-interpret">
+          <h3>🔍 자료 근거 AI 해석 (Interpretation)</h3>
+          <ul class="analysis-list">
+            <li><strong>사업 영역 확대 의미:</strong> 폴리펩타이드 인수는 기존 주력인 항체의약품에 더해 차세대 성장 분야인 펩타이드 영역까지 생산 포트폴리오를 다변화하려는 전략적 행보로 볼 수 있습니다.</li>
+            <li><strong>지표에 담긴 시장 평가:</strong> PER(주가수익비율) 42.31배는 회사가 1년간 번 순이익 대비 주가가 약 42배 수준이라는 뜻으로, 주식 시장이 세계적인 제약사들의 약을 도맡아 만드는 높은 기술력과 미래 성장 가능성을 높게 평가하고 있음을 보여줍니다.</li>
+            <li><strong>노사 갈등의 현실적 영향:</strong> 법원의 가처분 결정으로 핵심 생산 인력이 유지되므로 전면 중단 우려는 낮으나, 대외 고객 신뢰 관리를 위해 원만한 협상 타결 여부를 주시할 필요가 있습니다.</li>
+            <li><strong>인과관계 배제 원칙:</strong> 11월 5일의 주가 상승(+1.61%)을 단순히 특정 기사나 호재 때문으로 단정할 수 없으며, 시장 전체의 거래 흐름과 복합적으로 작용합니다.</li>
+          </ul>
+        </article>
+
+        <!-- 남은 질문 -->
+        <article class="analysis-card analysis-questions">
+          <h3>❓ 남은 질문 (Questions to Check)</h3>
+          <ul class="analysis-list">
+            <li><strong>인수 후 실적 반영:</strong> 폴리펩타이드 인수가 완료된 이후 실제 회사 연결 재무제표의 매출과 영업이익에 언제부터 얼마나 기여하는가?</li>
+            <li><strong>노사 교섭 진행 추이:</strong> 6일 시작되는 2차 파업 이후 노사 간 추가 협상이 언제 어떻게 타결되는가?</li>
+            <li><strong>5공장 증설 및 수주 잔고:</strong> 증설 중인 5공장의 사전 수주 확보율이 계획대로 채워지고 있는가?</li>
+            <li><strong>전자공시(DART) 정기 점검:</strong> 비공개된 수주 계약의 고객사 공개 여부 및 분기별 확정 실적을 전자공시를 통해 직접 확인할 필요가 있습니다.</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- 원칙 고지 -->
+      <div class="tip-box" style="background:rgba(30, 20, 15, 0.7); border-color:rgba(249, 115, 22, 0.35); border-left-color:#f97316; margin-top:20px;">
+        <div class="tip-title" style="color:#fdba74;">⚠️ 투자의 원칙 안내</div>
+        <div class="tip-content" style="color:#fed7aa;">
+          본 보고서는 어떠한 목표주가, 미래 가격 예측, 매매 추천, 수익 보장도 제시하지 않습니다.
+          가격 변동의 원인을 자의적인 가짜 뉴스로 지어내지 않으며, 확인된 공시와 보도 수치만을 다룹니다.
+          투자의 최종 결정과 책임은 투자자 본인에게 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 데이터 검증 현황 및 파일 위치 안내 -->
+    <section class="section-card">
+      <h2>6. 데이터 검증 현황 및 다시 여는 방법</h2>
+      
+      <div class="verify-box">
+        <h4>📋 데이터 검증 및 미검증 항목 안내</h4>
+        <ul style="list-style-type: square; padding-left: 20px; line-height: 1.8; margin-top: 8px;">
+          <li><span style="color:var(--compass-cyan); font-weight:800;">[검증 완료]</span> 상장 종목명(삼성바이오로직스), 거래소(KRX KOSPI), 종목코드(207940).</li>
+          <li><span style="color:var(--compass-cyan); font-weight:800;">[검증 완료]</span> 2026년 10월 1일 ~ 11월 5일(24거래일) 일별 종가, 시가, 고가, 저가, 거래량 데이터 수치.</li>
+          <li><span style="color:var(--compass-cyan); font-weight:800;">[검증 완료]</span> 2026-11-05 기준 시가총액(70조 3,160억), PER(42.31배), PBR(8.47배), 52주 최고/최저가.</li>
+          <li><span style="color:var(--compass-cyan); font-weight:800;">[검증 완료]</span> 관련 기사 5건의 매체, 보도일시, 원문 링크 URL 및 4건의 본문 직접 열람 요약.</li>
+          <li><span style="color:#fb7185; font-weight:800;">[미검증 / 확인 필요]</span> 공시 기사 5번의 비공개 본문 세부 사항, 향후 분기 미공시 실적, 노사 교섭의 최종 합의 시점 및 미래 주가 향방(예측 불가 항목).</li>
+        </ul>
+
+        <hr style="border:none; border-top: 1px dashed rgba(255,255,255,0.12); margin: 14px 0;">
+
+        <h4>📂 저장 파일 위치 및 브라우저에서 다시 여는 방법</h4>
+        <p style="margin-top: 6px;">
+          • <strong>메인 보고서 파일:</strong> <code>c:\Users\User\Desktop\제미나이주식\index.html</code><br>
+          • <strong>독립 배포용 보고서 파일:</strong> <code>c:\Users\User\Desktop\제미나이주식\stock-report.html</code><br>
+          • <strong>저장 데이터(시세+뉴스 통합):</strong> <code>c:\Users\User\Desktop\제미나이주식\samsung_biologics_data.json</code><br>
+          • <strong>기존 백업 파일:</strong> <code>c:\Users\User\Desktop\제미나이주식\게임\index_snake_backup.html</code> (기존 스네이크 게임 원본 보존)<br>
+          • <strong>다시 여는 방법:</strong> 윈도우 파일 탐색기에서 <code>c:\Users\User\Desktop\제미나이주식</code> 폴더로 이동한 후, <code>index.html</code> 또는 <code>stock-report.html</code> 파일을 마우스 더블클릭하거나 크롬/엣지 브라우저 창으로 드래그하시면 언제든지 다시 열람하실 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+      <p><strong>삼성바이오로직스 주식 보고서 최종본 (AI 초안 · 저장 자료 기준 · 실시간 시세 아님)</strong></p>
+      <p>작성 시각: 2026-11-05 21:22:00 KST | 수집 시각: 2026-11-05 20:57:30 KST | 시세 출처: 한국거래소(KRX) 유가증권시장 공시 데이터 및 네이버페이 증권 공식 시세</p>
+      <p>뉴스 출처: 한국경제, 한국경제TV, 연합뉴스TV, 동아일보, 금융감독원 전자공시시스템(DART)</p>
+      <p>본 문서는 순수 참고용 초안 자료이며, 외부 게시나 상업적 목적의 재배포 및 투자 권유 용도로 사용할 수 없습니다.</p>
+    </footer>
+  </main>
+
+  <!-- 데이터 및 차트 렌더링 스크립트 -->
+  <script>
+    // 2026-10-01 ~ 2026-11-05 실제 저장 일별 데이터 (24거래일 - 원자료 100% 동일)
+    const stockHistory = [
+      { date: "2026-10-01", close: 1428000, ratio: 2.66, open: 1390000, high: 1441000, low: 1389000, vol: 55677 },
+      { date: "2026-10-02", close: 1366000, ratio: -3.67, open: 1428000, high: 1429000, low: 1350000, vol: 51556 },
+      { date: "2026-10-06", close: 1318000, ratio: -2.66, open: 1355000, high: 1363000, low: 1300000, vol: 84657 },
+      { date: "2026-10-07", close: 1278000, ratio: -2.44, open: 1303000, high: 1313000, low: 1272000, vol: 62482 },
+      { date: "2026-10-08", close: 1220000, ratio: -4.46, open: 1273000, high: 1274000, low: 1218000, vol: 81929 },
+      { date: "2026-10-12", close: 1196000, ratio: -1.89, open: 1216000, high: 1217000, low: 1179000, vol: 60946 },
+      { date: "2026-10-13", close: 1204000, ratio: 0.25, open: 1196000, high: 1207000, low: 1165000, vol: 62502 },
+      { date: "2026-10-14", close: 1179000, ratio: -2.24, open: 1198000, high: 1200000, low: 1165000, vol: 54896 },
+      { date: "2026-10-15", close: 1241000, ratio: 4.99, open: 1165000, high: 1250000, low: 1150000, vol: 139442 },
+      { date: "2026-10-16", close: 1291000, ratio: 3.53, open: 1241000, high: 1337000, low: 1216000, vol: 165872 },
+      { date: "2026-10-19", close: 1386000, ratio: 6.78, open: 1290000, high: 1432000, low: 1269000, vol: 151200 },
+      { date: "2026-10-20", close: 1385000, ratio: -2.94, open: 1420000, high: 1440000, low: 1370000, vol: 92961 },
+      { date: "2026-10-21", close: 1412000, ratio: 1.51, open: 1405000, high: 1449000, low: 1384000, vol: 116940 },
+      { date: "2026-10-22", close: 1361000, ratio: -3.95, open: 1397000, high: 1417000, low: 1355000, vol: 75632 },
+      { date: "2026-10-23", close: 1460000, ratio: 7.27, open: 1385000, high: 1475000, low: 1371000, vol: 115666 },
+      { date: "2026-10-26", close: 1449000, ratio: -1.16, open: 1446000, high: 1489000, low: 1433000, vol: 33925 },
+      { date: "2026-10-27", close: 1376000, ratio: -5.23, open: 1437000, high: 1438000, low: 1353000, vol: 90466 },
+      { date: "2026-10-28", close: 1371000, ratio: -0.22, open: 1370000, high: 1399000, low: 1360000, vol: 50178 },
+      { date: "2026-10-29", close: 1368000, ratio: -0.29, open: 1381000, high: 1391000, low: 1350000, vol: 42227 },
+      { date: "2026-10-30", close: 1432000, ratio: 4.83, open: 1380000, high: 1487000, low: 1350000, vol: 100349 },
+      { date: "2026-11-02", close: 1433000, ratio: -3.63, open: 1446000, high: 1473000, low: 1420000, vol: 41504 },
+      { date: "2026-11-03", close: 1435000, ratio: 0.91, open: 1453000, high: 1494000, low: 1433000, vol: 51571 },
+      { date: "2026-11-04", close: 1497000, ratio: 3.10, open: 1432000, high: 1500000, low: 1401000, vol: 73415 },
+      { date: "2026-11-05", close: 1519000, ratio: 1.61, open: 1501000, high: 1575000, low: 1497000, vol: 121115 }
+    ];
+
+    // 테이블 렌더링 (최신순 출력)
+    const tableBody = document.getElementById("priceTableBody");
+    const reversedHistory = [...stockHistory].reverse();
+    
+    reversedHistory.forEach(item => {
+      const tr = document.createElement("tr");
+      const isUp = item.ratio > 0;
+      const isDown = item.ratio < 0;
+      const ratioColor = isUp ? "var(--up-color)" : (isDown ? "var(--down-color)" : "var(--text-sub)");
+      const sign = isUp ? "▲ " : (isDown ? "▼ " : "");
+
+      tr.innerHTML = `
+        <td style="font-weight:700; color:var(--text-pure);">${item.date}</td>
+        <td style="font-weight:800; color:var(--text-main); font-variant-numeric:tabular-nums;">${item.close.toLocaleString()}</td>
+        <td style="font-weight:800; color:${ratioColor}; font-variant-numeric:tabular-nums;">${sign}${Math.abs(item.ratio).toFixed(2)}%</td>
+        <td style="font-variant-numeric:tabular-nums; color:var(--text-sub);">${item.open.toLocaleString()}</td>
+        <td style="font-variant-numeric:tabular-nums; color:var(--text-sub);">${item.high.toLocaleString()}</td>
+        <td style="font-variant-numeric:tabular-nums; color:var(--text-sub);">${item.low.toLocaleString()}</td>
+        <td style="color:var(--text-muted); font-variant-numeric:tabular-nums;">${item.vol.toLocaleString()}</td>
+      `;
+      tableBody.appendChild(tr);
+    });
+
+    // 순수 HTML5 Canvas 인터랙티브 라인 & 거래량 차트 (나침반 푸른 빛의 물결 렌더링)
+    const canvas = document.getElementById("stockChart");
+    const ctx = canvas.getContext("2d");
+    const tooltip = document.getElementById("chartTooltip");
+    let chartPoints = [];
+
+    function setupCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      renderChart(rect.width, rect.height);
+    }
+
+    function renderChart(width, height) {
+      ctx.clearRect(0, 0, width, height);
+
+      const paddingLeft = 68;
+      const paddingRight = 20;
+      const paddingTop = 25;
+      const paddingBottom = 45;
+      const chartWidth = width - paddingLeft - paddingRight;
+      const chartHeight = height - paddingTop - paddingBottom;
+
+      const prices = stockHistory.map(d => d.close);
+      const volumes = stockHistory.map(d => d.vol);
+      const minPrice = Math.min(...prices) * 0.96;
+      const maxPrice = Math.max(...prices) * 1.04;
+      const maxVol = Math.max(...volumes) * 3.2;
+
+      // 1. 그리드 가로선 및 Y축 라벨
+      const yTicks = 5;
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+      ctx.font = "11.5px -apple-system, sans-serif";
+
+      for (let i = 0; i <= yTicks; i++) {
+        const val = minPrice + ((maxPrice - minPrice) * (i / yTicks));
+        const y = paddingTop + chartHeight - (chartHeight * (i / yTicks));
+
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.07)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(paddingLeft, y);
+        ctx.lineTo(width - paddingRight, y);
+        ctx.stroke();
+
+        ctx.fillStyle = "#94a3b8";
+        ctx.fillText((Math.round(val / 10000) * 1) + "만", paddingLeft - 8, y);
+      }
+
+      // 2. 포인트 좌표 계산
+      chartPoints = stockHistory.map((d, i) => {
+        const x = paddingLeft + (chartWidth * (i / (stockHistory.length - 1)));
+        const y = paddingTop + chartHeight - ((d.close - minPrice) / (maxPrice - minPrice) * chartHeight);
+        const barH = (d.vol / maxVol) * chartHeight;
+        const barY = paddingTop + chartHeight - barH;
+        return { x, y, barY, barH, ...d };
+      });
+
+      // 3. 거래량 바 그리기
+      const barWidth = Math.max(3, (chartWidth / stockHistory.length) * 0.58);
+      chartPoints.forEach(p => {
+        ctx.fillStyle = "rgba(251, 191, 36, 0.35)";
+        ctx.fillRect(p.x - barWidth / 2, p.barY, barWidth, p.barH);
+      });
+
+      // 4. 종가 영역 네온 블루 그라디언트 채우기
+      const gradient = ctx.createLinearGradient(0, paddingTop, 0, paddingTop + chartHeight);
+      gradient.addColorStop(0, "rgba(0, 242, 254, 0.35)");
+      gradient.addColorStop(0.5, "rgba(2, 132, 199, 0.15)");
+      gradient.addColorStop(1, "rgba(0, 242, 254, 0.0)");
+
+      ctx.beginPath();
+      ctx.moveTo(chartPoints[0].x, paddingTop + chartHeight);
+      chartPoints.forEach((p, idx) => {
+        if (idx === 0) ctx.lineTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.lineTo(chartPoints[chartPoints.length - 1].x, paddingTop + chartHeight);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // 5. 종가 라인 그리기
+      ctx.save();
+      ctx.shadowColor = "#00f2fe";
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.strokeStyle = "#00f2fe";
+      ctx.lineWidth = 2.8;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      chartPoints.forEach((p, idx) => {
+        if (idx === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.stroke();
+      ctx.restore();
+
+      // 6. 데이터 점 표시
+      chartPoints.forEach((p, idx) => {
+        ctx.save();
+        ctx.beginPath();
+        const isLast = idx === chartPoints.length - 1;
+        ctx.arc(p.x, p.y, isLast ? 6 : 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = isLast ? "#fb7185" : "#00f2fe";
+        ctx.shadowColor = isLast ? "#fb7185" : "#00f2fe";
+        ctx.shadowBlur = isLast ? 14 : 8;
+        ctx.fill();
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 1.8;
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      // 7. X축 날짜 라벨
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "11px -apple-system, sans-serif";
+
+      const step = Math.ceil(stockHistory.length / 5);
+      chartPoints.forEach((p, i) => {
+        if (i % step === 0 || i === chartPoints.length - 1) {
+          const shortDate = p.date.substring(5); // "MM-DD"
+          ctx.fillText(shortDate, p.x, paddingTop + chartHeight + 10);
+        }
+      });
+    }
+
+    // 마우스 호버 인터랙션
+    function handlePointer(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = clientX - rect.left;
+      const mouseY = clientY - rect.top;
+
+      let closest = null;
+      let minDistance = Infinity;
+
+      chartPoints.forEach(p => {
+        const dist = Math.abs(p.x - mouseX);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closest = p;
+        }
+      });
+
+      if (closest && minDistance < (rect.width / stockHistory.length)) {
+        tooltip.style.display = "block";
+        const isUp = closest.ratio >= 0;
+        const color = isUp ? "#fb7185" : "#38bdf8";
+        const sign = isUp ? "+" : "";
+
+        tooltip.innerHTML = `
+          <div style="font-weight:800; margin-bottom:3px; color:#fed7aa;">✦ ${closest.date}</div>
+          <div>종가: <strong style="color:${color}; font-size:13.5px;">${closest.close.toLocaleString()}원</strong> (${sign}${closest.ratio.toFixed(2)}%)</div>
+          <div style="color:#94a3b8; font-size:11px; margin-top:2px;">거래량: ${closest.vol.toLocaleString()}주</div>
+        `;
+
+        let left = closest.x - tooltip.offsetWidth / 2;
+        let top = closest.y - tooltip.offsetHeight - 14;
+
+        if (left < 10) left = 10;
+        if (left + tooltip.offsetWidth > rect.width - 10) left = rect.width - tooltip.offsetWidth - 10;
+        if (top < 10) top = closest.y + 14;
+
+        tooltip.style.left = left + "px";
+        tooltip.style.top = top + "px";
+      } else {
+        tooltip.style.display = "none";
+      }
+    }
+
+    canvas.addEventListener("mousemove", (e) => handlePointer(e.clientX, e.clientY));
+    canvas.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+
+    // 모바일 터치 지원
+    canvas.addEventListener("touchmove", (e) => {
+      if (e.touches.length > 0) {
+        handlePointer(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+    canvas.addEventListener("touchend", () => {
+      setTimeout(() => { tooltip.style.display = "none"; }, 2500);
+    });
+
+    window.addEventListener("resize", setupCanvas);
+    window.addEventListener("DOMContentLoaded", setupCanvas);
+    setupCanvas();
+  </script>
+</body>
+</html>
