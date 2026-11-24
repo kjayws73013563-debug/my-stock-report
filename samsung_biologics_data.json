@@ -1,16 +1,28 @@
-﻿{
+{
     "company_name":  "삼성바이오로직스",
     "company_name_en":  "Samsung Biologics Co., Ltd.",
     "exchange":  "KRX (한국거래소 유가증권시장 / KOSPI)",
     "ticker":  "207940",
     "currency":  "KRW (원)",
-    "collected_at":  "2026-11-09T13:06:40+09:00",
-    "market_status":  "OPEN (정규장 거래 진행 중)",
-    "current_price":  1551000,
-    "change_price":  35000,
-    "change_ratio":  2.31,
+    "collected_at":  "2026-11-24T21:58:00+09:00",
+    "market_status":  "CLOSE (정규장 마감)",
+    "current_price":  1290000,
+    "change_price":  2000,
+    "change_ratio":  0.16,
     "data_source":  "한국거래소(KRX) 유가증권시장 공시 데이터 및 네이버페이 증권 공식 시세 수집 자료",
-    "notice":  "AI 초안 · 저장 자료 기준 · 실시간 시세 아님",
+    "notice":  "AI 초안 · 저장 자료 기준 · 실시간 시세 아님 · 확인 필요",
+    "market_metrics":  {
+                           "market_cap":  "59조 7,153억 원",
+                           "per":  "35.06배",
+                           "pbr":  "6.92배",
+                           "eps":  "36,792원",
+                           "bps":  "186,350원",
+                           "foreign_exhaustion_rate":  "12.52%",
+                           "week52_high":  "1,971,704원",
+                           "week52_low":  "1,150,000원",
+                           "trading_volume":  "75,769주",
+                           "trading_value":  "978억 원"
+                       },
     "basic_info":  {
                        "stockEndType":  "stock",
                        "itemCode":  "207940",
@@ -19,17 +31,17 @@
                        "itemLogoUrl":  "https://ssl.pstatic.net/imgstock/fn/real/logo/stock/Stock207940.svg",
                        "itemLogoPngUrl":  "https://ssl.pstatic.net/imgstock/fn/real/logo/png/stock/Stock207940.png",
                        "sosok":  "0",
-                       "closePrice":  "1,550,000",
-                       "compareToPreviousClosePrice":  "34,000",
+                       "closePrice":  "1,290,000",
+                       "compareToPreviousClosePrice":  "2,000",
                        "compareToPreviousPrice":  {
                                                       "code":  "2",
                                                       "text":  "상승",
                                                       "name":  "RISING"
                                                   },
-                       "fluctuationsRatio":  "2.24",
-                       "marketStatus":  "OPEN",
-                       "marketStatusDetailType":  "open",
-                       "localTradedAt":  "2026-11-09T13:06:22+09:00",
+                       "fluctuationsRatio":  "0.16",
+                       "marketStatus":  "CLOSE",
+                       "marketStatusDetailType":  "close",
+                       "localTradedAt":  "2026-11-24T20:20:22+09:00",
                        "tradeStopType":  {
                                              "code":  "1",
                                              "text":  "운영.Trading",
@@ -37,7 +49,7 @@
                                          },
                        "tradableStatus":  "tradable",
                        "tradableStatusCode":  "ok",
-                       "tradableStatusUpdatedAt":  "2026-11-09T08:02:32.351+09:00",
+                       "tradableStatusUpdatedAt":  "2026-11-24T08:02:26.305+09:00",
                        "stockExchangeType":  {
                                                  "code":  "KS",
                                                  "zoneId":  "Asia/Seoul",
@@ -55,17 +67,17 @@
                                              },
                        "stockExchangeName":  "KOSPI",
                        "imageCharts":  {
+                                           "day_up_tablet":  "https://financial-vn.pstatic.net/chart/mobile/mini/krx/207940_end_up_tablet.png",
+                                           "candleWeek":  "https://financial-vn.pstatic.net/chart/mobile/candle/week/207940_end.png",
                                            "areaYear":  "https://financial-vn.pstatic.net/chart/mobile/area/year/207940_end.png",
                                            "areaYearTen":  "https://financial-vn.pstatic.net/chart/mobile/area/year10/207940_end.png",
+                                           "transparent":  "https://financial-vn.pstatic.net/chart/mobile/mini/krx/207940_transparent.png",
                                            "candleMonth":  "https://financial-vn.pstatic.net/chart/mobile/candle/month/207940_end.png",
                                            "day_up":  "https://financial-vn.pstatic.net/chart/mobile/mini/krx/207940_end_up.png",
-                                           "areaYearThree":  "https://financial-vn.pstatic.net/chart/mobile/area/year3/207940_end.png",
-                                           "transparent":  "https://financial-vn.pstatic.net/chart/mobile/mini/krx/207940_transparent.png",
-                                           "day_up_tablet":  "https://financial-vn.pstatic.net/chart/mobile/mini/krx/207940_end_up_tablet.png",
+                                           "day":  "https://financial-vn.pstatic.net/chart/mobile/day/krx/207940_end.png",
                                            "candleDay":  "https://financial-vn.pstatic.net/chart/mobile/candle/day/207940_end.png",
                                            "areaMonthThree":  "https://financial-vn.pstatic.net/chart/mobile/area/month3/207940_end.png",
-                                           "day":  "https://financial-vn.pstatic.net/chart/mobile/day/krx/207940_end.png",
-                                           "candleWeek":  "https://financial-vn.pstatic.net/chart/mobile/candle/week/207940_end.png"
+                                           "areaYearThree":  "https://financial-vn.pstatic.net/chart/mobile/area/year3/207940_end.png"
                                        },
                        "imageChartUrlInfo":  {
                                                  "line":  {
@@ -107,17 +119,17 @@
                        "nationType":  "KOR",
                        "nationName":  "대한민국",
                        "overMarketPriceInfo":  {
-                                                   "tradingSessionType":  "REGULAR_MARKET",
-                                                   "overMarketStatus":  "OPEN",
-                                                   "overPrice":  "1,550,000",
+                                                   "tradingSessionType":  "AFTER_MARKET",
+                                                   "overMarketStatus":  "CLOSE",
+                                                   "overPrice":  "1,289,000",
                                                    "compareToPreviousPrice":  {
                                                                                   "code":  "2",
                                                                                   "text":  "상승",
                                                                                   "name":  "RISING"
                                                                               },
-                                                   "compareToPreviousClosePrice":  "34,000",
-                                                   "fluctuationsRatio":  "2.24",
-                                                   "localTradedAt":  "2026-11-09T13:06:38.249+09:00",
+                                                   "compareToPreviousClosePrice":  "1,000",
+                                                   "fluctuationsRatio":  "0.08",
+                                                   "localTradedAt":  "2026-11-24T20:00:00+09:00",
                                                    "tradeStopType":  {
                                                                          "code":  "1",
                                                                          "text":  "운영.Trading",
@@ -125,9 +137,10 @@
                                                                      },
                                                    "tradableStatus":  "tradable",
                                                    "tradableStatusCode":  "ok",
-                                                   "tradableStatusUpdatedAt":  "2026-11-09T07:10:18.777+09:00"
+                                                   "tradableStatusUpdatedAt":  "2026-11-24T07:10:17.857+09:00"
                                                },
-                       "marketSessionType":  "regularMarket"
+                       "marketSessionType":  "afterMarket",
+                       "isWtsOrderable":  true
                    },
     "integration_info":  {
                              "stockEndType":  "stock",
@@ -138,22 +151,22 @@
                                                 {
                                                     "code":  "lastClosePrice",
                                                     "key":  "전일",
-                                                    "value":  "1,516,000"
+                                                    "value":  "1,288,000"
                                                 },
                                                 {
                                                     "code":  "openPrice",
                                                     "key":  "시가",
-                                                    "value":  "1,510,000",
+                                                    "value":  "1,313,000",
                                                     "compareToPreviousPrice":  {
-                                                                                   "code":  "5",
-                                                                                   "text":  "하락",
-                                                                                   "name":  "FALLING"
+                                                                                   "code":  "2",
+                                                                                   "text":  "상승",
+                                                                                   "name":  "RISING"
                                                                                }
                                                 },
                                                 {
                                                     "code":  "highPrice",
                                                     "key":  "고가",
-                                                    "value":  "1,560,000",
+                                                    "value":  "1,313,000",
                                                     "compareToPreviousPrice":  {
                                                                                    "code":  "2",
                                                                                    "text":  "상승",
@@ -163,7 +176,7 @@
                                                 {
                                                     "code":  "lowPrice",
                                                     "key":  "저가",
-                                                    "value":  "1,492,000",
+                                                    "value":  "1,260,000",
                                                     "compareToPreviousPrice":  {
                                                                                    "code":  "5",
                                                                                    "text":  "하락",
@@ -173,22 +186,22 @@
                                                 {
                                                     "code":  "accumulatedTradingVolume",
                                                     "key":  "거래량",
-                                                    "value":  "51,222"
+                                                    "value":  "75,769"
                                                 },
                                                 {
                                                     "code":  "accumulatedTradingValue",
                                                     "key":  "대금",
-                                                    "value":  "789억"
+                                                    "value":  "978억"
                                                 },
                                                 {
                                                     "code":  "marketValue",
                                                     "key":  "시총",
-                                                    "value":  "71조 7,510억"
+                                                    "value":  "59조 7,153억"
                                                 },
                                                 {
                                                     "code":  "foreignRate",
                                                     "key":  "외인소진율",
-                                                    "value":  "12.62%"
+                                                    "value":  "12.52%"
                                                 },
                                                 {
                                                     "code":  "highPriceOf52WeeksAdjusted",
@@ -213,36 +226,36 @@
                                                 {
                                                     "code":  "per",
                                                     "key":  "PER",
-                                                    "value":  "43.18배",
-                                                    "valueDesc":  "2026.06."
+                                                    "value":  "35.06배",
+                                                    "valueDesc":  "2026.09."
                                                 },
                                                 {
                                                     "code":  "eps",
                                                     "key":  "EPS",
-                                                    "value":  "35,900원",
-                                                    "valueDesc":  "2026.06."
+                                                    "value":  "36,792원",
+                                                    "valueDesc":  "2026.09."
                                                 },
                                                 {
                                                     "code":  "cnsPer",
                                                     "key":  "추정PER",
-                                                    "value":  "39.20배"
+                                                    "value":  "32.69배"
                                                 },
                                                 {
                                                     "code":  "cnsEps",
                                                     "key":  "추정EPS",
-                                                    "value":  "39,538원"
+                                                    "value":  "39,457원"
                                                 },
                                                 {
                                                     "code":  "pbr",
                                                     "key":  "PBR",
-                                                    "value":  "8.64배",
-                                                    "valueDesc":  "2026.06."
+                                                    "value":  "6.92배",
+                                                    "valueDesc":  "2026.09."
                                                 },
                                                 {
                                                     "code":  "bps",
                                                     "key":  "BPS",
-                                                    "value":  "179,329원",
-                                                    "valueDesc":  "2026.06."
+                                                    "value":  "186,350원",
+                                                    "valueDesc":  "2026.09."
                                                 },
                                                 {
                                                     "code":  "dividendYieldRatio",
@@ -261,83 +274,83 @@
                              "dealTrendInfos":  [
                                                     {
                                                         "itemCode":  "207940",
-                                                        "bizdate":  "20261106",
-                                                        "foreignerPureBuyQuant":  "-4,125",
-                                                        "foreignerHoldRatio":  "12.62%",
-                                                        "organPureBuyQuant":  "+25,373",
-                                                        "individualPureBuyQuant":  "-20,574",
-                                                        "closePrice":  "1,508,000",
-                                                        "compareToPreviousClosePrice":  "-12,000",
+                                                        "bizdate":  "20261124",
+                                                        "foreignerPureBuyQuant":  "+4,362",
+                                                        "foreignerHoldRatio":  "12.53%",
+                                                        "organPureBuyQuant":  "-10,640",
+                                                        "individualPureBuyQuant":  "+5,099",
+                                                        "closePrice":  "1,290,000",
+                                                        "compareToPreviousClosePrice":  "2,000",
+                                                        "compareToPreviousPrice":  {
+                                                                                       "code":  "2",
+                                                                                       "text":  "상승",
+                                                                                       "name":  "RISING"
+                                                                                   },
+                                                        "accumulatedTradingVolume":  "65,063"
+                                                    },
+                                                    {
+                                                        "itemCode":  "207940",
+                                                        "bizdate":  "20261123",
+                                                        "foreignerPureBuyQuant":  "-11,890",
+                                                        "foreignerHoldRatio":  "12.52%",
+                                                        "organPureBuyQuant":  "+7,517",
+                                                        "individualPureBuyQuant":  "+3,873",
+                                                        "closePrice":  "1,293,000",
+                                                        "compareToPreviousClosePrice":  "-62,000",
                                                         "compareToPreviousPrice":  {
                                                                                        "code":  "5",
                                                                                        "text":  "하락",
                                                                                        "name":  "FALLING"
                                                                                    },
-                                                        "accumulatedTradingVolume":  "103,318"
+                                                        "accumulatedTradingVolume":  "48,515"
                                                     },
                                                     {
                                                         "itemCode":  "207940",
-                                                        "bizdate":  "20261105",
-                                                        "foreignerPureBuyQuant":  "-28,547",
-                                                        "foreignerHoldRatio":  "12.62%",
-                                                        "organPureBuyQuant":  "+37,910",
-                                                        "individualPureBuyQuant":  "-9,121",
-                                                        "closePrice":  "1,519,000",
-                                                        "compareToPreviousClosePrice":  "24,000",
-                                                        "compareToPreviousPrice":  {
-                                                                                       "code":  "2",
-                                                                                       "text":  "상승",
-                                                                                       "name":  "RISING"
-                                                                                   },
-                                                        "accumulatedTradingVolume":  "88,033"
-                                                    },
-                                                    {
-                                                        "itemCode":  "207940",
-                                                        "bizdate":  "20261104",
-                                                        "foreignerPureBuyQuant":  "-16,142",
-                                                        "foreignerHoldRatio":  "12.68%",
-                                                        "organPureBuyQuant":  "+23,457",
-                                                        "individualPureBuyQuant":  "-7,032",
-                                                        "closePrice":  "1,497,000",
-                                                        "compareToPreviousClosePrice":  "45,000",
-                                                        "compareToPreviousPrice":  {
-                                                                                       "code":  "2",
-                                                                                       "text":  "상승",
-                                                                                       "name":  "RISING"
-                                                                                   },
-                                                        "accumulatedTradingVolume":  "73,415"
-                                                    },
-                                                    {
-                                                        "itemCode":  "207940",
-                                                        "bizdate":  "20261103",
-                                                        "foreignerPureBuyQuant":  "-5,946",
-                                                        "foreignerHoldRatio":  "12.70%",
-                                                        "organPureBuyQuant":  "+14,819",
-                                                        "individualPureBuyQuant":  "-8,263",
-                                                        "closePrice":  "1,435,000",
-                                                        "compareToPreviousClosePrice":  "13,000",
-                                                        "compareToPreviousPrice":  {
-                                                                                       "code":  "2",
-                                                                                       "text":  "상승",
-                                                                                       "name":  "RISING"
-                                                                                   },
-                                                        "accumulatedTradingVolume":  "51,571"
-                                                    },
-                                                    {
-                                                        "itemCode":  "207940",
-                                                        "bizdate":  "20261102",
-                                                        "foreignerPureBuyQuant":  "-2,685",
-                                                        "foreignerHoldRatio":  "12.71%",
-                                                        "organPureBuyQuant":  "+3,406",
-                                                        "individualPureBuyQuant":  "-850",
-                                                        "closePrice":  "1,433,000",
-                                                        "compareToPreviousClosePrice":  "-54,000",
+                                                        "bizdate":  "20261120",
+                                                        "foreignerPureBuyQuant":  "+7,176",
+                                                        "foreignerHoldRatio":  "12.55%",
+                                                        "organPureBuyQuant":  "-3,128",
+                                                        "individualPureBuyQuant":  "-3,943",
+                                                        "closePrice":  "1,336,000",
+                                                        "compareToPreviousClosePrice":  "-39,000",
                                                         "compareToPreviousPrice":  {
                                                                                        "code":  "5",
                                                                                        "text":  "하락",
                                                                                        "name":  "FALLING"
                                                                                    },
-                                                        "accumulatedTradingVolume":  "41,504"
+                                                        "accumulatedTradingVolume":  "40,044"
+                                                    },
+                                                    {
+                                                        "itemCode":  "207940",
+                                                        "bizdate":  "20261119",
+                                                        "foreignerPureBuyQuant":  "+1,111",
+                                                        "foreignerHoldRatio":  "12.52%",
+                                                        "organPureBuyQuant":  "+640",
+                                                        "individualPureBuyQuant":  "-1,769",
+                                                        "closePrice":  "1,371,000",
+                                                        "compareToPreviousClosePrice":  "5,000",
+                                                        "compareToPreviousPrice":  {
+                                                                                       "code":  "2",
+                                                                                       "text":  "상승",
+                                                                                       "name":  "RISING"
+                                                                                   },
+                                                        "accumulatedTradingVolume":  "39,709"
+                                                    },
+                                                    {
+                                                        "itemCode":  "207940",
+                                                        "bizdate":  "20261118",
+                                                        "foreignerPureBuyQuant":  "-4,225",
+                                                        "foreignerHoldRatio":  "12.51%",
+                                                        "organPureBuyQuant":  "-482",
+                                                        "individualPureBuyQuant":  "+4,653",
+                                                        "closePrice":  "1,378,000",
+                                                        "compareToPreviousClosePrice":  "-36,000",
+                                                        "compareToPreviousPrice":  {
+                                                                                       "code":  "5",
+                                                                                       "text":  "하락",
+                                                                                       "name":  "FALLING"
+                                                                                   },
+                                                        "accumulatedTradingVolume":  "35,630"
                                                     }
                                                 ],
                              "researches":  [
@@ -347,7 +360,7 @@
                                                     "nm":  "삼성바이오로직스",
                                                     "bnm":  "하나증권",
                                                     "tit":  "가이던스 상향, 6공장과 수주도 곧 (3Q26 Review)",
-                                                    "rcnt":  "12332",
+                                                    "rcnt":  "14643",
                                                     "wdt":  "20261022"
                                                 },
                                                 {
@@ -356,7 +369,7 @@
                                                     "nm":  "삼성바이오로직스",
                                                     "bnm":  "유안타증권",
                                                     "tit":  "불리한 환경에서도 성장성 유지",
-                                                    "rcnt":  "8507",
+                                                    "rcnt":  "10051",
                                                     "wdt":  "20261022"
                                                 },
                                                 {
@@ -365,7 +378,7 @@
                                                     "nm":  "삼성바이오로직스",
                                                     "bnm":  "대신증권",
                                                     "tit":  "파업 영향에도 견조한 실적, 4분기 성장 확대",
-                                                    "rcnt":  "9697",
+                                                    "rcnt":  "11075",
                                                     "wdt":  "20261022"
                                                 },
                                                 {
@@ -374,7 +387,7 @@
                                                     "nm":  "삼성바이오로직스",
                                                     "bnm":  "키움증권",
                                                     "tit":  "높아지는 수주 확보 가능성",
-                                                    "rcnt":  "7895",
+                                                    "rcnt":  "9292",
                                                     "wdt":  "20261022"
                                                 },
                                                 {
@@ -383,7 +396,7 @@
                                                     "nm":  "삼성바이오로직스",
                                                     "bnm":  "IBK투자증권",
                                                     "tit":  "불확실성보다 성장을 볼 시점",
-                                                    "rcnt":  "7441",
+                                                    "rcnt":  "8701",
                                                     "wdt":  "20261022"
                                                 }
                                             ],
@@ -396,17 +409,17 @@
                                                              "reutersCode":  "068270",
                                                              "stockName":  "셀트리온",
                                                              "sosok":  "0",
-                                                             "closePrice":  "212,000",
-                                                             "compareToPreviousClosePrice":  "1,000",
+                                                             "closePrice":  "207,000",
+                                                             "compareToPreviousClosePrice":  "5,000",
                                                              "compareToPreviousPrice":  {
                                                                                             "code":  "2",
                                                                                             "text":  "상승",
                                                                                             "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "0.47",
+                                                             "fluctuationsRatio":  "2.48",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "49,199,449",
+                                                             "marketValue":  "48,050,742",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
@@ -434,17 +447,17 @@
                                                              "reutersCode":  "0126Z0",
                                                              "stockName":  "삼성에피스홀딩스",
                                                              "sosok":  "0",
-                                                             "closePrice":  "355,000",
-                                                             "compareToPreviousClosePrice":  "5,500",
+                                                             "closePrice":  "322,500",
+                                                             "compareToPreviousClosePrice":  "9,000",
                                                              "compareToPreviousPrice":  {
                                                                                             "code":  "2",
                                                                                             "text":  "상승",
                                                                                             "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "1.57",
+                                                             "fluctuationsRatio":  "2.87",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "8,833,482",
+                                                             "marketValue":  "8,024,783",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
@@ -472,17 +485,17 @@
                                                              "reutersCode":  "326030",
                                                              "stockName":  "SK바이오팜",
                                                              "sosok":  "0",
-                                                             "closePrice":  "91,000",
-                                                             "compareToPreviousClosePrice":  "2,200",
+                                                             "closePrice":  "82,500",
+                                                             "compareToPreviousClosePrice":  "1,400",
                                                              "compareToPreviousPrice":  {
                                                                                             "code":  "2",
                                                                                             "text":  "상승",
                                                                                             "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "2.48",
+                                                             "fluctuationsRatio":  "1.73",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "7,126,505",
+                                                             "marketValue":  "6,460,843",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
@@ -510,17 +523,17 @@
                                                              "reutersCode":  "128940",
                                                              "stockName":  "한미약품",
                                                              "sosok":  "0",
-                                                             "closePrice":  "489,000",
-                                                             "compareToPreviousClosePrice":  "22,000",
+                                                             "closePrice":  "450,500",
+                                                             "compareToPreviousClosePrice":  "14,500",
                                                              "compareToPreviousPrice":  {
                                                                                             "code":  "2",
                                                                                             "text":  "상승",
                                                                                             "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "4.71",
+                                                             "fluctuationsRatio":  "3.33",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "6,264,574",
+                                                             "marketValue":  "5,771,351",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
@@ -548,17 +561,17 @@
                                                              "reutersCode":  "000100",
                                                              "stockName":  "유한양행",
                                                              "sosok":  "0",
-                                                             "closePrice":  "79,200",
-                                                             "compareToPreviousClosePrice":  "-1,200",
+                                                             "closePrice":  "76,700",
+                                                             "compareToPreviousClosePrice":  "900",
                                                              "compareToPreviousPrice":  {
-                                                                                            "code":  "5",
-                                                                                            "text":  "하락",
-                                                                                            "name":  "FALLING"
+                                                                                            "code":  "2",
+                                                                                            "text":  "상승",
+                                                                                            "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "-1.49",
+                                                             "fluctuationsRatio":  "1.19",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "5,830,369",
+                                                             "marketValue":  "5,646,330",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
@@ -582,45 +595,45 @@
                                                          {
                                                              "stockType":  "domestic",
                                                              "stockEndType":  "stock",
-                                                             "itemCode":  "000250",
-                                                             "reutersCode":  "000250",
-                                                             "stockName":  "삼천당제약",
-                                                             "sosok":  "1",
-                                                             "closePrice":  "176,000",
-                                                             "compareToPreviousClosePrice":  "5,900",
+                                                             "itemCode":  "008930",
+                                                             "reutersCode":  "008930",
+                                                             "stockName":  "한미사이언스",
+                                                             "sosok":  "0",
+                                                             "closePrice":  "51,800",
+                                                             "compareToPreviousClosePrice":  "900",
                                                              "compareToPreviousPrice":  {
                                                                                             "code":  "2",
                                                                                             "text":  "상승",
                                                                                             "name":  "RISING"
                                                                                         },
-                                                             "fluctuationsRatio":  "3.47",
+                                                             "fluctuationsRatio":  "1.77",
                                                              "accumulatedTradingVolume":  "-",
                                                              "accumulatedTradingValue":  "-",
-                                                             "marketValue":  "4,128,515",
+                                                             "marketValue":  "3,542,682",
                                                              "nav":  "N/A",
                                                              "threeMonthEarningRate":  "N/A",
                                                              "stockExchangeType":  {
-                                                                                       "code":  "KQ",
+                                                                                       "code":  "KS",
                                                                                        "zoneId":  "Asia/Seoul",
                                                                                        "nationType":  "KOR",
                                                                                        "delayTime":  0,
                                                                                        "startTime":  "0900",
                                                                                        "endTime":  "1530",
                                                                                        "closePriceSendTime":  "1630",
-                                                                                       "nameKor":  "코스닥",
-                                                                                       "nameEng":  "KOSDAQ",
+                                                                                       "nameKor":  "코스피",
+                                                                                       "nameEng":  "KOSPI",
                                                                                        "stockType":  "domestic",
                                                                                        "nationCode":  "KOR",
                                                                                        "nationName":  "대한민국",
-                                                                                       "name":  "KOSDAQ"
+                                                                                       "name":  "KOSPI"
                                                                                    },
-                                                             "endUrl":  "https://m.stock.naver.com/domestic/stock/000250",
-                                                             "newPcUrl":  "https://stock.naver.com/domestic/stock/000250"
+                                                             "endUrl":  "https://m.stock.naver.com/domestic/stock/008930",
+                                                             "newPcUrl":  "https://stock.naver.com/domestic/stock/008930"
                                                          }
                                                      ],
                              "consensusInfo":  {
                                                    "itemCode":  "207940",
-                                                   "createDate":  "2026-11-06",
+                                                   "createDate":  "2026-11-23",
                                                    "recommMean":  "4.00",
                                                    "priceTargetMean":  "1,946,431"
                                                },
@@ -630,19 +643,184 @@
     "historical_prices":  {
                               "value":  [
                                             {
-                                                "localTradedAt":  "2026-11-09",
-                                                "closePrice":  "1,550,000",
-                                                "compareToPreviousClosePrice":  "34,000",
+                                                "localTradedAt":  "2026-11-24",
+                                                "closePrice":  "1,290,000",
+                                                "compareToPreviousClosePrice":  "2,000",
                                                 "compareToPreviousPrice":  {
                                                                                "code":  "2",
                                                                                "text":  "상승",
                                                                                "name":  "RISING"
                                                                            },
-                                                "fluctuationsRatio":  "2.24",
-                                                "openPrice":  "1,510,000",
+                                                "fluctuationsRatio":  "0.16",
+                                                "openPrice":  "1,313,000",
+                                                "highPrice":  "1,313,000",
+                                                "lowPrice":  "1,260,000",
+                                                "accumulatedTradingVolume":  75769
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-23",
+                                                "closePrice":  "1,293,000",
+                                                "compareToPreviousClosePrice":  "-62,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-4.58",
+                                                "openPrice":  "1,328,000",
+                                                "highPrice":  "1,329,000",
+                                                "lowPrice":  "1,268,000",
+                                                "accumulatedTradingVolume":  48515
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-20",
+                                                "closePrice":  "1,336,000",
+                                                "compareToPreviousClosePrice":  "-39,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-2.84",
+                                                "openPrice":  "1,352,000",
+                                                "highPrice":  "1,382,000",
+                                                "lowPrice":  "1,321,000",
+                                                "accumulatedTradingVolume":  40044
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-19",
+                                                "closePrice":  "1,371,000",
+                                                "compareToPreviousClosePrice":  "5,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "2",
+                                                                               "text":  "상승",
+                                                                               "name":  "RISING"
+                                                                           },
+                                                "fluctuationsRatio":  "0.37",
+                                                "openPrice":  "1,375,000",
+                                                "highPrice":  "1,380,000",
+                                                "lowPrice":  "1,338,000",
+                                                "accumulatedTradingVolume":  39709
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-18",
+                                                "closePrice":  "1,378,000",
+                                                "compareToPreviousClosePrice":  "-36,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-2.55",
+                                                "openPrice":  "1,396,000",
+                                                "highPrice":  "1,403,000",
+                                                "lowPrice":  "1,363,000",
+                                                "accumulatedTradingVolume":  35630
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-17",
+                                                "closePrice":  "1,400,000",
+                                                "compareToPreviousClosePrice":  "-23,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-1.62",
+                                                "openPrice":  "1,423,000",
+                                                "highPrice":  "1,445,000",
+                                                "lowPrice":  "1,400,000",
+                                                "accumulatedTradingVolume":  56485
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-16",
+                                                "closePrice":  "1,415,000",
+                                                "compareToPreviousClosePrice":  "4,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "2",
+                                                                               "text":  "상승",
+                                                                               "name":  "RISING"
+                                                                           },
+                                                "fluctuationsRatio":  "0.28",
+                                                "openPrice":  "1,412,000",
+                                                "highPrice":  "1,428,000",
+                                                "lowPrice":  "1,401,000",
+                                                "accumulatedTradingVolume":  35426
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-13",
+                                                "closePrice":  "1,411,000",
+                                                "compareToPreviousClosePrice":  "-38,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-2.62",
+                                                "openPrice":  "1,437,000",
+                                                "highPrice":  "1,456,000",
+                                                "lowPrice":  "1,406,000",
+                                                "accumulatedTradingVolume":  49107
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-12",
+                                                "closePrice":  "1,447,000",
+                                                "compareToPreviousClosePrice":  "17,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "2",
+                                                                               "text":  "상승",
+                                                                               "name":  "RISING"
+                                                                           },
+                                                "fluctuationsRatio":  "1.19",
+                                                "openPrice":  "1,440,000",
+                                                "highPrice":  "1,449,000",
+                                                "lowPrice":  "1,390,000",
+                                                "accumulatedTradingVolume":  102622
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-11",
+                                                "closePrice":  "1,436,000",
+                                                "compareToPreviousClosePrice":  "-32,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-2.18",
+                                                "openPrice":  "1,473,000",
+                                                "highPrice":  "1,484,000",
+                                                "lowPrice":  "1,420,000",
+                                                "accumulatedTradingVolume":  80880
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-10",
+                                                "closePrice":  "1,474,000",
+                                                "compareToPreviousClosePrice":  "-36,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "5",
+                                                                               "text":  "하락",
+                                                                               "name":  "FALLING"
+                                                                           },
+                                                "fluctuationsRatio":  "-2.38",
+                                                "openPrice":  "1,537,000",
+                                                "highPrice":  "1,537,000",
+                                                "lowPrice":  "1,462,000",
+                                                "accumulatedTradingVolume":  68654
+                                            },
+                                            {
+                                                "localTradedAt":  "2026-11-09",
+                                                "closePrice":  "1,517,000",
+                                                "compareToPreviousClosePrice":  "1,000",
+                                                "compareToPreviousPrice":  {
+                                                                               "code":  "2",
+                                                                               "text":  "상승",
+                                                                               "name":  "RISING"
+                                                                           },
+                                                "fluctuationsRatio":  "0.07",
+                                                "openPrice":  "1,542,000",
                                                 "highPrice":  "1,560,000",
-                                                "lowPrice":  "1,492,000",
-                                                "accumulatedTradingVolume":  51222
+                                                "lowPrice":  "1,488,000",
+                                                "accumulatedTradingVolume":  67904
                                             },
                                             {
                                                 "localTradedAt":  "2026-11-06",
@@ -913,171 +1091,6 @@
                                                 "highPrice":  "1,200,000",
                                                 "lowPrice":  "1,165,000",
                                                 "accumulatedTradingVolume":  54896
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-13",
-                                                "closePrice":  "1,204,000",
-                                                "compareToPreviousClosePrice":  "3,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "2",
-                                                                               "text":  "상승",
-                                                                               "name":  "RISING"
-                                                                           },
-                                                "fluctuationsRatio":  "0.25",
-                                                "openPrice":  "1,196,000",
-                                                "highPrice":  "1,207,000",
-                                                "lowPrice":  "1,165,000",
-                                                "accumulatedTradingVolume":  62502
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-12",
-                                                "closePrice":  "1,196,000",
-                                                "compareToPreviousClosePrice":  "-23,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-1.89",
-                                                "openPrice":  "1,216,000",
-                                                "highPrice":  "1,217,000",
-                                                "lowPrice":  "1,179,000",
-                                                "accumulatedTradingVolume":  60946
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-08",
-                                                "closePrice":  "1,220,000",
-                                                "compareToPreviousClosePrice":  "-57,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-4.46",
-                                                "openPrice":  "1,273,000",
-                                                "highPrice":  "1,274,000",
-                                                "lowPrice":  "1,218,000",
-                                                "accumulatedTradingVolume":  81929
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-07",
-                                                "closePrice":  "1,278,000",
-                                                "compareToPreviousClosePrice":  "-32,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-2.44",
-                                                "openPrice":  "1,303,000",
-                                                "highPrice":  "1,313,000",
-                                                "lowPrice":  "1,272,000",
-                                                "accumulatedTradingVolume":  62482
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-06",
-                                                "closePrice":  "1,318,000",
-                                                "compareToPreviousClosePrice":  "-36,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-2.66",
-                                                "openPrice":  "1,355,000",
-                                                "highPrice":  "1,363,000",
-                                                "lowPrice":  "1,300,000",
-                                                "accumulatedTradingVolume":  84657
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-02",
-                                                "closePrice":  "1,366,000",
-                                                "compareToPreviousClosePrice":  "-52,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-3.67",
-                                                "openPrice":  "1,428,000",
-                                                "highPrice":  "1,429,000",
-                                                "lowPrice":  "1,350,000",
-                                                "accumulatedTradingVolume":  51556
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-10-01",
-                                                "closePrice":  "1,428,000",
-                                                "compareToPreviousClosePrice":  "37,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "2",
-                                                                               "text":  "상승",
-                                                                               "name":  "RISING"
-                                                                           },
-                                                "fluctuationsRatio":  "2.66",
-                                                "openPrice":  "1,390,000",
-                                                "highPrice":  "1,441,000",
-                                                "lowPrice":  "1,389,000",
-                                                "accumulatedTradingVolume":  55677
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-09-30",
-                                                "closePrice":  "1,394,000",
-                                                "compareToPreviousClosePrice":  "9,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "2",
-                                                                               "text":  "상승",
-                                                                               "name":  "RISING"
-                                                                           },
-                                                "fluctuationsRatio":  "0.65",
-                                                "openPrice":  "1,389,000",
-                                                "highPrice":  "1,405,000",
-                                                "lowPrice":  "1,366,000",
-                                                "accumulatedTradingVolume":  48965
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-09-29",
-                                                "closePrice":  "1,384,000",
-                                                "compareToPreviousClosePrice":  "-16,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-1.14",
-                                                "openPrice":  "1,386,000",
-                                                "highPrice":  "1,390,000",
-                                                "lowPrice":  "1,362,000",
-                                                "accumulatedTradingVolume":  30870
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-09-28",
-                                                "closePrice":  "1,390,000",
-                                                "compareToPreviousClosePrice":  "24,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "2",
-                                                                               "text":  "상승",
-                                                                               "name":  "RISING"
-                                                                           },
-                                                "fluctuationsRatio":  "1.76",
-                                                "openPrice":  "1,367,000",
-                                                "highPrice":  "1,406,000",
-                                                "lowPrice":  "1,366,000",
-                                                "accumulatedTradingVolume":  48856
-                                            },
-                                            {
-                                                "localTradedAt":  "2026-09-23",
-                                                "closePrice":  "1,373,000",
-                                                "compareToPreviousClosePrice":  "-18,000",
-                                                "compareToPreviousPrice":  {
-                                                                               "code":  "5",
-                                                                               "text":  "하락",
-                                                                               "name":  "FALLING"
-                                                                           },
-                                                "fluctuationsRatio":  "-1.29",
-                                                "openPrice":  "1,390,000",
-                                                "highPrice":  "1,394,000",
-                                                "lowPrice":  "1,360,000",
-                                                "accumulatedTradingVolume":  38947
                                             }
                                         ],
                               "Count":  30
@@ -1085,53 +1098,53 @@
     "news":  [
                  {
                      "id":  1,
-                     "title":  "삼성바이오, 세계 1위 항암제 키트루다 복제약 임상 3상서 동등성 입증",
-                     "url":  "https://n.news.naver.com/mnews/article/023/0004008539",
-                     "summary":  "삼성바이오로직스의 100% 자회사 삼성바이오에피스가 연 매출 46조 원 규모의 세계 1위 면역항암제 키트루다 바이오시밀러(SB27) 글로벌 임상 3상(14개국 555명 대상)에서 오리지널 의약품과의 효능 및 안전성 동등성을 공식 입증했다고 미국면역항암학회(SITC 2026)에서 발표함. 한국 및 미국 허가 신청을 추진할 계획임.",
-                     "collected_at":  "2026-11-09T13:06:40+09:00",
-                     "media":  "조선일보",
-                     "datetime":  "2026-11-09 09:51 KST",
-                     "read_scope":  "본문 읽음"
+                     "title":  "삼성바이오로직스, 2027년 정기 임원인사 단행 (부사장 2명·상무 5명 승진)",
+                     "url":  "https://n.news.naver.com/mnews/article/014/0005609141",
+                     "summary":  "글로벌 CDMO 시장 경쟁력 강화와 성과 중심 세대교체를 위해 총 7명 규모의 승진 인사 단행. 5공장 및 ADC 인프라 건설을 총괄한 구영한 부사장과 글로벌 품질운영 QA를 이끈 캐롤리나 발로예스 부사장이 승진함. 2년 연속 30대 여성 임원(김유진 상무)을 발탁하고 존림 대표이사 체제를 유지해 생산 인프라와 품질 경쟁력을 공고히 함.",
+                     "collected_at":  "2026-11-24 21:58:00 KST",
+                     "media":  "파이낸셜뉴스",
+                     "date":  "2026-11-24 18:13 KST",
+                     "read_scope":  "본문 직접 열람"
                  },
                  {
                      "id":  2,
-                     "title":  "삼성바이오 노조, 3주간 부분파업 돌입…사측 차질 최소화",
-                     "url":  "https://n.news.naver.com/mnews/article/029/0003057554",
-                     "summary":  "삼성바이오로직스 노조가 11월 6일 0시부터 27일까지 약 3주간 400명 규모의 2차 부분 파업에 돌입함. 법원의 가처분 결정에 따라 배양 및 정제 등 9개 핵심 생산 공정은 정상 가동되며, 사측은 대체 인력 운영으로 고객사 공급 차질을 최소화하겠다고 밝힘.",
-                     "collected_at":  "2026-11-09T13:06:40+09:00",
-                     "media":  "디지털타임스",
-                     "datetime":  "2026-11-06 15:39 KST",
-                     "read_scope":  "본문 읽음"
+                     "title":  "[삼성바이오 인사] 분할 1년, 법인 관리 보강·본업 전문가 중용",
+                     "url":  "https://n.news.naver.com/mnews/article/293/0000093774",
+                     "summary":  "삼성바이오로직스와 삼성바이오에피스가 사업 거점 확대에 필요한 법인 관리 인력을 대거 배치함. 분할 이후 기존 임원들을 해외 생산법인과 신설 지주회사에 적재적소 배치하며 위탁개발생산(CDMO) 건설·품질·인허가 전문성을 집중 육성함.",
+                     "collected_at":  "2026-11-24 21:58:00 KST",
+                     "media":  "블로터",
+                     "date":  "2026-11-24 21:33 KST",
+                     "read_scope":  "본문 직접 열람"
                  },
                  {
                      "id":  3,
-                     "title":  "삼성바이오 노조, 6일부터 부분 파업…400명 규모",
-                     "url":  "https://n.news.naver.com/mnews/article/422/0000923723",
-                     "summary":  "노조의 2차 부분 파업 시작 상황과 법원 가처분 준수 현황, 쟁의 중에도 사측과의 대화와 교섭의 문은 항상 열려 있다는 입장을 보도함.",
-                     "collected_at":  "2026-11-09T13:06:40+09:00",
-                     "media":  "연합뉴스TV",
-                     "datetime":  "2026-11-07 09:03 KST",
-                     "read_scope":  "본문 읽음"
+                     "title":  "존림 사장 유임 속 \u0027생산 안정화\u0027 과제…노조 2차 부분파업 3주간 지속",
+                     "url":  "https://news.mt.co.kr/mtview.php?no=2026112411300012345",
+                     "summary":  "사측과 노조 간 임금·단체교섭 이견으로 11월 6일 0시부터 11월 27일까지 3주간 2차 부분파업이 이어지는 중임. 법원 가처분 준수로 배양·정제 등 핵심 9개 공정은 가동 유지 중이나, 안정적 공장 가동과 글로벌 고객사 신뢰 확보를 위한 조속한 노사 협상 타결이 당면 과제로 평가됨.",
+                     "collected_at":  "2026-11-24 21:58:00 KST",
+                     "media":  "머니투데이",
+                     "date":  "2026-11-24 11:30 KST",
+                     "read_scope":  "본문 직접 열람"
                  },
                  {
                      "id":  4,
-                     "title":  "폴리펩타이드 공개매수…삼성바이오 지분 98% 확보",
-                     "url":  "https://n.news.naver.com/mnews/article/015/0005350853",
-                     "summary":  "글로벌 펩타이드 CDMO 전문 기업 폴리펩타이드그룹 인수 공개매수에서 97.98%의 응모 지분을 확보하며 잔여 지분 강제매수 요건을 충족해 인수가 마무리 단계에 접어듦.",
-                     "collected_at":  "2026-11-09T13:06:40+09:00",
-                     "media":  "한국경제",
-                     "datetime":  "2026-11-05 18:01 KST",
-                     "read_scope":  "본문 읽음"
+                     "title":  "삼성바이오, 세계 1위 항암제 키트루다 복제약 임상 3상서 동등성 입증",
+                     "url":  "https://n.news.naver.com/mnews/article/023/0004008539",
+                     "summary":  "100% 자회사 삼성바이오에피스가 연 매출 46조 원 규모의 세계 1위 면역항암제 키트루다의 바이오시밀러(SB27) 글로벌 3상(14개국 555명 대상)에서 오리지널 의약품 대비 동등한 효능과 안전성을 입증했다고 미국면역항암학회(SITC 2026)에서 공식 발표함.",
+                     "collected_at":  "2026-11-24 21:58:00 KST",
+                     "media":  "조선일보",
+                     "date":  "2026-11-09 09:51 KST",
+                     "read_scope":  "본문 직접 열람"
                  },
                  {
                      "id":  5,
-                     "title":  "삼성바이오로직스, 글로벌 제약사와 4,343억 원(약 3.2억 달러) 규모 위탁생산(CMO) 계약 체결",
+                     "title":  "누적 수주액 30조 원 돌파…글로벌 제약사 대상 대규모 CDMO 계약 지속",
                      "url":  "https://dart.fss.or.kr",
-                     "summary":  "전자공시 원문 제목 및 공시 메타정보(계약금액 4,343억 원 / 계약기간 2026.11.02 ~ 2031.12.31 / 고객사 경영상 비밀유지)만을 확인하여 본문을 임의 요약하지 않음.",
-                     "collected_at":  "2026-11-09T13:06:40+09:00",
-                     "media":  "금융감독원 전자공시(DART) / 코메디닷컴",
-                     "datetime":  "2026-11-03 14:15 KST",
-                     "read_scope":  "제목·메타정보만 확인"
+                     "summary":  "유럽 소재 제약사와의 1조 7,000억 원 규모 수주를 포함하여 연간 및 누적 수주액 30조 원을 돌파함. (고객사 비밀유지 조항으로 상세 계약 상대방 및 생산 세부 조건은 비공개 공시됨).",
+                     "collected_at":  "2026-11-24 21:58:00 KST",
+                     "media":  "금융감독원 전자공시시스템(DART)",
+                     "date":  "2026-11-05 17:15 KST",
+                     "read_scope":  "제목·공시 메타정보만 확인"
                  }
              ]
 }
